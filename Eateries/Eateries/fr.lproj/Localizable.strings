@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Eateries
+
+  Created by Ivan Akulov on 14/10/2016.
+  Copyright © 2016 Ivan Akulov. All rights reserved.
+*/
+
+"Источник фотографии" = "Photos Source";
+"Камера" = "Caméra";
+"Фото" = "Photo";
+"Отмена" = "Annulation";
