@@ -114,3 +114,20 @@ if player.tracker.advance(to: 2) {
     print("Уровень 2 еще не разблокирован")
 }
 
+
+
+struct Timestable {
+    let multiplier: Int
+    subscript(index: Int) -> Int {
+        return multiplier * index
+    }
+
+}
+let threeTimesTable = Timestable(multiplier: 3)
+print("6 * 3 = \(threeTimesTable[6])")
+
+
+var numberOfLegs = ["паук": 8, "муравей": 6, "кошка": 4]
+numberOfLegs["птичка"] = 2
+
+
