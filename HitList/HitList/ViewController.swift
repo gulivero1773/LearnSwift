@@ -23,6 +23,24 @@ class ViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+                   return
+               }
+     let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequst = NSFetchRequest<NSManagedObject>(entityName: "Person")
+        
+        do {
+            people = try managedContext.fetch(fetchRequst)
+        } catch let error  as NSError {
+                   print("НЕ могу прочитать. \(error), \(error.userInfo)")
+                   
+               }
+    }
+    
     @IBAction func addName(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Новое имя", message: "Добавьте новое имя", preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Сохранить", style: .default) { [unowned self] (action) in
@@ -41,9 +59,11 @@ class ViewController: UIViewController {
     }
     
     func save(name: String) {
+        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
+        
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Person", in: managedContext)!
         let person = NSManagedObject(entity: entity, insertInto: managedContext)
