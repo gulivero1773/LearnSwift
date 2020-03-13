@@ -72,4 +72,86 @@ class UntitkedDocument: Document {
 }
 
 
+class SomeClass {
+    required init() {
+        
+    }
+}
 
+class SomeSubClass: SomeClass {
+    var name: String = ""
+    init(name: String) {
+        self.name = name
+    }
+    required init() {
+            self.name = "XXX"
+        }
+    }
+
+
+//class SomeNewClass {
+//    let someProperty: SomeType = {
+//        //
+//        return someValue
+//    } ()
+//}
+
+
+struct Chessboard {
+    let boardColors: [Bool] = {
+       var tempBoard = [Bool]()
+        var isBlack = false
+        for i in 1...8 {
+            for j in 1...8 {
+                tempBoard.append(isBlack)
+                isBlack = !isBlack
+            }
+            isBlack = !isBlack
+        }
+        return tempBoard
+    }()
+    func squareIsBlackAt(row: Int, colum: Int) -> Bool {
+        return boardColors[(row * 8) + colum]
+    }
+}
+
+let board = Chessboard()
+print(board.squareIsBlackAt(row: 0, colum: 1))
+print(board.squareIsBlackAt(row: 7, colum: 7))
+
+
+
+
+class Bank {
+    static var coinsInBank = 10000
+    static func distibute(coins numberOfCoinsRequested: Int) -> Int {
+        let numberOfCoinsToVend = min(numberOfCoinsRequested, coinsInBank)
+        coinsInBank -= numberOfCoinsToVend
+        return numberOfCoinsToVend
+    }
+    static func receive(coins: Int) {
+        coinsInBank += coins
+    }
+}
+
+class Player {
+    var coinsInPurse: Int
+    init(coins: Int) {
+        coinsInPurse = Bank.distibute(coins: coins)
+    }
+    func win(coins: Int) {
+        coinsInPurse += Bank.distibute(coins: coins)
+    }
+    deinit {
+        Bank.receive(coins: coinsInPurse)
+    }
+}
+
+
+var playerOne: Player? = Player(coins: 100)
+print("\(playerOne!.coinsInPurse)")
+print("\(Bank.coinsInBank)")
+
+playerOne = nil
+print("")
+print("\(Bank.coinsInBank)")
