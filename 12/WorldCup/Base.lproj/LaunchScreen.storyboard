@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eZZ-lV-cAf">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="gJX-dC-Q5K">
+            <objects>
+                <viewController id="eZZ-lV-cAf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EFb-Xh-aJb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sl-logo" translatesAutoresizingMaskIntoConstraints="NO" id="bt8-e9-XFU">
+                                <rect key="frame" x="62.5" y="208.5" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Xni-kM-Aoh"/>
+                                    <constraint firstAttribute="width" constant="250" id="paU-ra-Gzh"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.43529411764705883" green="0.0" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bt8-e9-XFU" firstAttribute="centerX" secondItem="EFb-Xh-aJb" secondAttribute="centerX" id="XO7-SB-2Uh"/>
+                            <constraint firstItem="bt8-e9-XFU" firstAttribute="centerY" secondItem="EFb-Xh-aJb" secondAttribute="centerY" id="baF-wq-L53"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="J9I-tn-BjJ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zkm-zn-fkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="sl-logo" width="512" height="512"/>
+    </resources>
+</document>
