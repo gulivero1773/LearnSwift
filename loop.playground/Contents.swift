@@ -16,7 +16,7 @@ class Apartment {
     init(unit: String) {
         self.unit = unit
     }
-    var tenant: Person?
+weak var tenant: Person?
     deinit {
         print("Апартаменты \(unit) освобождаються")
     }
@@ -29,8 +29,8 @@ var unit4a: Apartment?
 john = Person(name: "John Appleseed")
 unit4a = Apartment(unit: "4a")
 
-john!.apartment = unit4a
-unit4a!.tenant = john
+john?.apartment = unit4a
+unit4a?.tenant = john
 
 john = nil
 unit4a = nil
